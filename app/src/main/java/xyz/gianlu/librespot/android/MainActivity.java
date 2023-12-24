@@ -31,6 +31,7 @@ import org.jetbrains.annotations.Range;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.Callable;
@@ -64,15 +65,13 @@ public final class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.settings_menu:
-                LibrespotHolder.clear();
-                startActivity(new Intent(this, SettingsActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings_menu) {
+            LibrespotHolder.clear();
+            startActivity(new Intent(this, SettingsActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -85,7 +84,8 @@ public final class MainActivity extends AppCompatActivity {
         binding.visibleAs.setText(pref.getString("preference_speaker_name",
                 getString(R.string.app_name)));
 
-        binding.playPauseButton.setOnClickListener((v) -> executorService.execute(new PlayPauseRunnable(() -> {})));
+        binding.playPauseButton.setOnClickListener((v) -> executorService.execute(new PlayPauseRunnable(() -> {
+        })));
 
         binding.prev.setOnClickListener((v) ->
                 executorService.execute(new PrevRunnable(() ->
@@ -96,7 +96,7 @@ public final class MainActivity extends AppCompatActivity {
                         Toast.makeText(this, R.string.skippedNext, Toast.LENGTH_SHORT).show())));
 
         // Make seekbar immutable from user side
-        binding.seekBar.setOnTouchListener(new SeekBar.OnTouchListener(){
+        binding.seekBar.setOnTouchListener(new SeekBar.OnTouchListener() {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -114,7 +114,8 @@ public final class MainActivity extends AppCompatActivity {
         Runnable pauseRunnable = () -> binding.playPauseButton.setImageResource(android.R.drawable.ic_media_play);
 
         Runnable closingRunnable = () -> {
-            executorService.execute(new SessionClosingRunnable(() -> {}));
+            executorService.execute(new SessionClosingRunnable(() -> {
+            }));
 
             binding.playPauseButton.setEnabled(false);
             binding.next.setEnabled(false);
@@ -130,9 +131,7 @@ public final class MainActivity extends AppCompatActivity {
         };
 
 
-
-
-    Player.EventsListener playerListener = new Player.EventsListener() {
+        Player.EventsListener playerListener = new Player.EventsListener() {
             private Runnable inactivityRunnable;
             private TimerTask timerTask;
             private final Handler handler = new Handler();
@@ -177,10 +176,17 @@ public final class MainActivity extends AppCompatActivity {
                                             binding.seekBar.setProgress(player.time());
                                             binding.currentTime.setText(Utils.formatTimeString(player.time()));
                                         });
-                            }};
+                            }
+                        };
                 timer.scheduleAtFixedRate(timerTask, 0, 500);
 
 
+            }
+
+            @Override
+            public void onPlaybackFailed(@NotNull Player player, @NotNull Exception e) {
+                if (e.getMessage() != null)
+                    Log.e(TAG, e.getMessage());
             }
 
             @Override
@@ -205,7 +211,6 @@ public final class MainActivity extends AppCompatActivity {
                         binding.songTitle.setText(R.string.noSong);
                         binding.songArtist.setText(R.string.artist);
                     }
-
 
 
                 });
@@ -252,7 +257,7 @@ public final class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPanicState(@NotNull Player player) {
-
+                Log.e(TAG, "Panic State");
             }
 
             @Override
@@ -281,6 +286,7 @@ public final class MainActivity extends AppCompatActivity {
 
             @Override
             public void sessionChanged(@NotNull Session session) {
+                Log.i(TAG, "Session changed");
                 executorService.execute(new SessionChangedRunnable(session, new SessionChangedCallback() {
 
                     @Override

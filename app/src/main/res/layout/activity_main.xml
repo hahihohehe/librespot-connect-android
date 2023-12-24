@@ -75,18 +75,18 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="51dp" />
+        android:layout_height="30dp" />
 
     <LinearLayout
         android:id="@+id/songDetails"
         android:layout_width="match_parent"
-        android:layout_height="452dp"
+        android:layout_height="300dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/songImage"
             android:layout_width="match_parent"
-            android:layout_height="324dp"
+            android:layout_height="250dp"
             android:contentDescription="@string/noSong"
             app:srcCompat="@drawable/defaultalbum" />
 
