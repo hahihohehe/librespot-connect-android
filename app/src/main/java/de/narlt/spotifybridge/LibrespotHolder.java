@@ -1,4 +1,4 @@
-package xyz.gianlu.librespot.android;
+package de.narlt.spotifybridge;
 
 import androidx.annotation.Nullable;
 

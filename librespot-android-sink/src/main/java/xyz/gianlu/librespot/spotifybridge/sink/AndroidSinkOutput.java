@@ -1,4 +1,4 @@
-package xyz.gianlu.librespot.android.sink;
+package xyz.gianlu.librespot.spotifybridge.sink;
 
 import android.media.AudioFormat;
 import android.media.AudioTrack;

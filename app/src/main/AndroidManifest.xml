@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="xyz.gianlu.librespot.android" >
+    package="de.narlt.spotifybridge">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,9 +8,9 @@
         android:name=".LibrespotConnectApp"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
-        android:icon="@drawable/librespot_connect_logo"
+        android:icon="@mipmap/ic_spotify_bridge"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/librespot_connect_logo"
+        android:roundIcon="@mipmap/ic_spotify_bridge_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LibrespotAndroid"
         android:usesCleartextTraffic="true" >

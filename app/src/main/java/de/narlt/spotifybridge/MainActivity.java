@@ -1,5 +1,4 @@
-package xyz.gianlu.librespot.android;
-
+package de.narlt.spotifybridge;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,15 +30,13 @@ import org.jetbrains.annotations.Range;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import xyz.gianlu.librespot.android.databinding.ActivityMainBinding;
-import xyz.gianlu.librespot.android.sink.AndroidSinkOutput;
+import de.narlt.spotifybridge.databinding.ActivityMainBinding;
+import xyz.gianlu.librespot.spotifybridge.sink.AndroidSinkOutput;
 import xyz.gianlu.librespot.audio.MetadataWrapper;
 import xyz.gianlu.librespot.core.Session;
 import xyz.gianlu.librespot.metadata.PlayableId;

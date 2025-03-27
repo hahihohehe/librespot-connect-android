@@ -5,9 +5,10 @@ plugins {
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
+    namespace "de.narlt.spotifybridge"
 
     defaultConfig {
-        applicationId "xyz.gianlu.librespot.android"
+        applicationId "de.narlt.spotifybridge"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 1

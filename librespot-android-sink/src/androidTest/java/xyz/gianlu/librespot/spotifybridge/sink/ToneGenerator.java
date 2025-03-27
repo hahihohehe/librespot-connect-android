@@ -1,4 +1,4 @@
-package xyz.gianlu.librespot.android.sink;
+package xyz.gianlu.librespot.spotifybridge.sink;
 
 /* From: https://stackoverflow.com/a/33676423
  * Author: https://stackoverflow.com/users/3896025/gerry

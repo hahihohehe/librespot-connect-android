@@ -4,6 +4,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="orange">#f39b35</color>
-    <color name="orange_light">#fec76c</color>
+    <color name="green">#23cf5f</color>
+    <color name="green_dark">#1E9849</color>
 </resources>

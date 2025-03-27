@@ -6,6 +6,7 @@ plugins {
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
+    namespace "xyz.gianlu.librespot.player.decoders.tremolo"
 
     defaultConfig {
         minSdkVersion 23

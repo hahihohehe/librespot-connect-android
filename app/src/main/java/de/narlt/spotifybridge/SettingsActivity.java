@@ -1,5 +1,4 @@
-package xyz.gianlu.librespot.android;
-
+package de.narlt.spotifybridge;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;

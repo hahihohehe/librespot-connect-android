@@ -1,5 +1,4 @@
-package xyz.gianlu.librespot.android;
-
+package de.narlt.spotifybridge;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.EditText;

@@ -1,4 +1,4 @@
-package xyz.gianlu.librespot.android.sink;
+package xyz.gianlu.librespot.spotifybridge.sink;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -13,7 +13,7 @@ import xyz.gianlu.librespot.player.mixing.output.SinkException;
 import static android.media.AudioTrack.PLAYSTATE_PLAYING;
 import static java.util.stream.IntStream.range;
 import static org.junit.Assert.assertEquals;
-import static xyz.gianlu.librespot.android.sink.ToneGenerator.genTone;
+import static xyz.gianlu.librespot.spotifybridge.sink.ToneGenerator.genTone;
 
 @RunWith(AndroidJUnit4.class)
 public class AudioStreamInstrumentedTest {
